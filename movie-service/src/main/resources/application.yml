@@ -1,0 +1,27 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: MOVIE-SERVICE
+  jpa:
+    defer-datasource-initialization: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/movie_service_db
+    username:
+    password:
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
